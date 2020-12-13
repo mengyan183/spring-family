@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!--
+    表示当前直接依赖 spring-boot-starter-parent 作为parent ,如果需要自定义parent ,也可以将其移动到
+        <dependencyManagement>
+        <dependencies>
+           <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>2.4.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    -->
+    <!--    <parent>-->
+    <!--        <groupId>org.springframework.boot</groupId>-->
+    <!--        <artifactId>spring-boot-starter-parent</artifactId>-->
+    <!--        <version>2.4.1</version>-->
+    <!--        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+    <!--    </parent>-->
+    <groupId>com.xingguo.spring</groupId>
+    <artifactId>helloworld</artifactId>
+    <version>1.0.0</version>
+    <name>helloWorld</name>
+    <description>Demo project for Spring Boot</description>
+    <!--默认是一个可执行jar-->
+    <packaging>jar</packaging>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <!--设置当前maven source jdk编译版本-->
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <!--设置当前maven target jdk编译版本-->
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <!--设置当前项目构建编码格式-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--当前方式表示将spring-boot-starter-parent作为pom引入-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>2.4.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!--
+        健康检查:
+        可以通过健康检查判断当前服务是否正常运行(避免僵尸程序发生)   curl http://ip:port/actuator/health
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!--
+        表示当前项目为一个web项目, 对于当前web项目默认运行容器为 tomcat, 默认端口为 8080, 可以通过在 application.properties 中设置server.port 来修改启动端口
+        在web依赖中实际默认引入了spring-boot-starter-tomcat,
+        在使用 maven 打包时,可以看到打包的结果 ,
+        3.0K helloworld-1.0.0.jar.original : 原始代码jar
+        18M  helloworld-1.0.0.jar : 可执行jar
+        对于 两者jar 体积差距如此大的原因在于,对于后者作为一个可执行jar,在执行maven 打包命令时会将所有依赖的jar全部都存放进去
+        对于 可执行jar 和 普通jar 的区别在于 可以 使用 java -jar helloworld-1.0.0.jar 来直接运行
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.4.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <!--表示当前plugin在执行时使用的是 repackage命令-->
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
