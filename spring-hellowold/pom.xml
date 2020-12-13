@@ -3,12 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <!--
-    表示当前直接依赖 spring-boot-starter-parent 作为parent ,如果需要自定义parent ,也可以将其移动到
+    表示当前直接依赖 spring-boot-starter-parent 作为parent ,如果需要自定义parent ,也可以修改为以下方式
         <dependencyManagement>
         <dependencies>
            <dependency>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-parent</artifactId>
+                <artifactId>spring-boot-dependencies</artifactId>
                 <version>2.4.1</version>
                 <type>pom</type>
                 <scope>import</scope>
@@ -42,10 +42,10 @@
 
     <dependencyManagement>
         <dependencies>
-            <!--当前方式表示将spring-boot-starter-parent作为pom引入-->
+            <!--当前方式表示将spring-boot-dependencies作为pom引入-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-parent</artifactId>
+                <artifactId>spring-boot-dependencies</artifactId>
                 <version>2.4.1</version>
                 <type>pom</type>
                 <scope>import</scope>
