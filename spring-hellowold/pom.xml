@@ -85,6 +85,24 @@
 
     <build>
         <plugins>
+            <!--
+            在 spring-boot-starter-parent 中实际已经配置了maven打包插件, 当不直接引用 spring-boot-starter-parent 时,我们需要自定义设置maven-plugin相关配置
+              <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+          <executions>
+            <execution>
+              <id>repackage</id>
+              <goals>
+                <goal>repackage</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <mainClass>${start-class}</mainClass>
+          </configuration>
+        </plugin>
+            -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
