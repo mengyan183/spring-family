@@ -12,7 +12,7 @@
 	<artifactId>spring-datasource</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-datasource</name>
-	<description>数据源配置</description>
+	<description>单数据源自动配置</description>
 
 	<properties>
 		<java.version>1.8</java.version>
