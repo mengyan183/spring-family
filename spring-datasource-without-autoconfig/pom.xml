@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>com.xingguo</groupId>
     <artifactId>spring-datasource-without-autoconfig</artifactId>
     <version>1.0-SNAPSHOT</version>
     <description>不使用springboot jdbc等自动化配置,手动配置</description>
