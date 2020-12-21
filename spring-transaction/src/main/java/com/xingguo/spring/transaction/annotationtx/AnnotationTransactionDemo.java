@@ -9,7 +9,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AdviceMode;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.interceptor.TransactionInterceptor;
 
@@ -102,6 +101,7 @@ public class AnnotationTransactionDemo implements CommandLineRunner {
         }
         System.out.println("=============invokeInsertFooWithRollBack end====================");
 
-
     }
 }
+
+
