@@ -1,0 +1,6 @@
+CREATE TABLE FOO (
+     ID int AUTO_INCREMENT,
+     BAR varchar(120),
+     PRIMARY KEY (ID)
+);
+INSERT INTO FOO (BAR) VALUES ('AAA');
