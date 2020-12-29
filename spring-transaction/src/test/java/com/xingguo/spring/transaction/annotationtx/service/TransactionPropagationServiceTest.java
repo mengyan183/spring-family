@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.support.AbstractPlatformTransactionManager;
 
 /**
  * TransactionPropagationServiceTest
@@ -214,5 +215,11 @@ public class TransactionPropagationServiceTest {
      *      2.2:父级事务正常提交情况下
      *          2.2.1:当子级事务传播机制为nested情况下,子级事务的回滚操作不会影响到父级事务,提交操作也不会受到父级事务的影响
      *          2.2.2:当子级事务传播机制为requires_new 情况下,子级事务的回滚操作都不会影响到父级事务,提交操作也不会受到父级事务的影响
+     *
+     *
+     * TODO : 对于父级存在事务情况下,父级回滚时,nested 传播机制下,子级被迫回滚的操作;
+     * 其核心主要是利用 在nested 事务开启时,其会创建一个回滚点,当父级发生回滚操作时,如果判断回滚点存在,则会将子级事务操作回滚到当前回滚点
+     * 具体处理逻辑如下
+     * @see AbstractPlatformTransactionManager#handleExistingTransaction(org.springframework.transaction.TransactionDefinition, java.lang.Object, boolean)
      */
 }
