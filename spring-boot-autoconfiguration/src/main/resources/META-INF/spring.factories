@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.xing.autoconfig.WebAutoConfiguration,\
+com.xing.autoconfig.AAutoConfiguration
